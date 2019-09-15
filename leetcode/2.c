@@ -1,7 +1,7 @@
 /*
  * @lc app=leetcode.cn id=2 lang=c
  *
- * [2] 两数相加
+ * [2]
  */
 /**
  * Definition for singly-linked list.
@@ -23,7 +23,7 @@ struct ListNode *addTwoNumbers(struct ListNode *l1, struct ListNode *l2)
     int carry = 0;
     l3 = malloc(sizeof(struct ListNode));
     struct ListNode *l4 = l3;
-    //相加
+    //鐩稿姞
     while (l1 != NULL || l2 != NULL)
     {
         int a = l1 ? l1->val : 0;
