@@ -196,7 +196,6 @@ int myLinkedListIsEmpty(MyLinkedList* obj) {
 }
 
 int main(){
-	printf("hello");
 }
 
 /**
