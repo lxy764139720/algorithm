@@ -29,13 +29,12 @@
  *     struct ListNode *next;
  * };
  */
-/*#include <stdio.h>
+#include <stdio.h>
 #include <stdlib.h>
 struct ListNode {
     int val;
     struct ListNode *next;
-};*/
-
+};
 struct ListNode *mergeTwoLists(struct ListNode *l1, struct ListNode *l2)
 {
     struct ListNode *l3 = malloc(sizeof(struct ListNode));
