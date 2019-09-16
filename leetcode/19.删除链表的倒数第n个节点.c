@@ -10,6 +10,12 @@
  *     struct ListNode *next;
  * };
  */
+#include<stdio.h>
+#include<stdlib.h>
+struct ListNode {
+    int val;
+    struct ListNode *next;
+};
 struct ListNode *removeNthFromEnd(struct ListNode *head, int n)
 {
     struct ListNode *dumb = malloc(sizeof(struct ListNode));
