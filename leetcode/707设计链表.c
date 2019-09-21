@@ -50,16 +50,16 @@
  * 请不要使用内置的 LinkedList 库。
  * 
  * 
- */
+ 
 #include <stdio.h>
-#include <stdlib.h>
-typedef struct ListNode
+#include <stdlib.h>*/
+typedef struct 
 {
     int val;
     struct ListNode *next;
 } ListNode;
 
-typedef struct MyLinkedList
+typedef struct 
 {
     struct ListNode *head;
 } MyLinkedList;
@@ -125,7 +125,7 @@ void myLinkedListAddAtIndex(MyLinkedList *obj, int index, int val)
     {
         myLinkedListAddAtHead(obj, val);
     }
-    if (index == 1 && !obj->head->next)
+    else if (index == 1 && !obj->head->next)
     {
     }
     else
@@ -172,7 +172,7 @@ void myLinkedListFree(MyLinkedList *obj)
     }
     free(obj);
 }
-
+/*
 int main()
 {
     MyLinkedList *obj = myLinkedListCreate();
