@@ -103,3 +103,5 @@ Mkfile.old
 dkms.conf
 
 .vscode
+
+.code-workspace
