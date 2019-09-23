@@ -30,7 +30,7 @@
  *     int val;
  *     struct ListNode *next;
  * };
- */
+ 
 #include <stdio.h>
 #include <stdlib.h>
 struct ListNode
@@ -44,8 +44,21 @@ struct ListNode *reverseList(struct ListNode *head)
     {
         return head;
     }
-    struct ListNode *next = head->next;
-    head->next = reverseList(next);
-    next->next = head;
-    return next;
+    struct ListNode *p;
+    p = reverseList(head->next);
+    head->next->next = head;
+    head->next=NULL;
+    return p;
+}*/
+struct ListNode *reverseList(struct ListNode *head)
+{
+    struct ListNode *prev=NULL;
+    struct ListNode *curr=head;
+    while(curr){
+        struct ListNode *next=curr->next;
+        curr->next=prev;
+        prev=curr;
+        curr=next;
+    }
+    return prev;
 }
