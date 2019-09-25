@@ -34,8 +34,10 @@
  * minStack.getMin();   --> 返回 -2.
  * 
  * 
- */
-
+ 
+#include <stdio.h>
+#include <stdlib.h>
+*/
 typedef struct //Node
 {
     int val;
@@ -122,6 +124,20 @@ void minStackFree(MinStack *obj)
 {
     obj->helpHead = NULL;
     obj->mainHead = NULL;
+}
+
+/*
+int main()
+{
+    MinStack* obj = minStackCreate();
+    minStackPush(obj, -2);
+    minStackPush(obj, 0);
+    minStackPush(obj, -3);
+    int param_3 = minStackGetMin(obj);
+    minStackPop(obj);
+    int param_4 = minStackTop(obj);
+    int param_5 = minStackGetMin(obj);
+    minStackFree(obj);
 }
 
 /**
