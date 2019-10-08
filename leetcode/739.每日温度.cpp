@@ -31,36 +31,33 @@ class Solution
 public:
     vector<int> dailyTemperatures(vector<int> &T)
     {
-        vector<int> newv;
-        stack<int> news;
-        int i, now, k, next, p = 0;
-        for (i = 0; i < T.size(); ++i)
+        int i = T.size() - 1;
+        vector<int> newv(i + 1);
+        newv[i] = 0;
+        --i;
+        while (i >= 0)
         {
-            now = T.at(i);
-            for (k = i + 1; k < T.size(); ++k)
+            if (T[i] < T[i + 1])
             {
-                next = T.at(k);
-                if (now < next)
+                newv[i] = 1;
+            }
+            else
+            {
+                int j = 1;
+                int sum = 1;
+                while (T[i] >= T[i + sum])
                 {
-                    while (!news.empty())
+                    if (newv[i + sum] == 0)
                     {
-                        ++p;
-                        news.pop();
+                        sum = 0;
+                        break;
                     }
-                    ++p;
-                    break;
+                    j = newv[i + sum];
+                    sum += j;
                 }
-                else
-                {
-                    news.push(next);
-                }
+                newv[i] = sum;
             }
-            newv.push_back(p);
-            p = 0;
-            while (!news.empty())
-            {
-                news.pop();
-            }
+            --i;
         }
         return newv;
     }
