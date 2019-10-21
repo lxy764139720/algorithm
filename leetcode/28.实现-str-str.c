@@ -40,14 +40,61 @@
 
 // @lc code=start
 
-
-int strStr(char * haystack, char * needle){
-    if(haystack==NULL){
-        return 0;
+int *calNext(char *needle)
+{
+    int size = 0;
+    int i = 0;
+    int j = -1;
+    for (; needle[size]; ++size)
+        ;
+    int *next = malloc(sizeof(int) * size);
+    next[0] = -1;
+    while (i < size - 1)
+    {
+        if (j < 0 || needle[i] == needle[j])
+        {
+            ++i;
+            ++j;
+            next[i] = needle[i] != needle[j] ? j : next[j];
+        }
+        else
+        {
+            j = next[j];
+        }
     }
-    
+    return next;
 }
 
+int strStr(char *haystack, char *needle)
+{
+    if (needle[0] == NULL)
+    {
+        return 0;
+    }
+    if (haystack[0] == NULL)
+    {
+        return -1;
+    }
+    int i = 0;
+    int j = 0;
+    int *next = calNext(needle);
+    while (j == -1 || haystack[i] && needle[j])
+    {
+        if (j < 0 || haystack[i] == needle[j])
+        {
+            ++i;
+            ++j;
+        }
+        else
+        {
+            j = next[j];
+        }
+    }
+    if (!needle[j])
+    {
+        return i - j;
+    }
+    return -1;
+}
 
 // @lc code=end
-
