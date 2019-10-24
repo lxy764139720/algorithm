@@ -44,7 +44,7 @@
 /**
  * Note: The returned array must be malloced, assume caller calls free().
  */
-
+//中左右
 #define MAX 1000
 
 typedef struct Stack
@@ -60,18 +60,18 @@ int *preorderTraversal(struct TreeNode *root, int *returnSize)
     int *back = malloc(sizeof(int) * MAX);
     Stack S; //这种写法即已分配存储空间
     S.len = 0;
-    while (root || S.len != 0)
+    while (root || S.len)//节点非空或栈非空
     {
-        while (root)
+        while (root)//节点非空
         {
-            back[(*returnSize)++] = root->val;
-            S.stack[S.len++] = root;
-            root = root->left;
+            back[(*returnSize)++] = root->val;//直接返回
+            S.stack[S.len++] = root;//然后入栈
+            root = root->left;//访问左节点
         }
-        if (S.len != 0)
+        if (S.len)//栈非空
         {
-            root = S.stack[--S.len];
-            root = root->right;
+            root = S.stack[--S.len];//退回父节点
+            root = root->right;//进入右节点
         }
     }
     back[*returnSize] = '\0';
