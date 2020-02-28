@@ -12,7 +12,8 @@
 			"*.m": "matlab",
 			"stack": "cpp",
 			"xiosbase": "c",
-			"vector": "cpp"
+			"vector": "cpp",
+			"iostream": "cpp"
 		}
 	}
 }
